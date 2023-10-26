@@ -15,14 +15,13 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   @override
   void initState() {
     super.initState();
-    controller = AnimationController(
-      duration: Duration(seconds: 1),
-      vsync: this,
-    );
+    controller =
+        AnimationController(duration: Duration(seconds: 1), vsync: this);
     controller.forward();
     controller.addListener(
       () {
         print(controller.value);
+        setState(() {});
       },
     );
   }
@@ -30,7 +29,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.red.withOpacity(controller.value),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
@@ -43,13 +42,13 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   tag: 'logo',
                   child: Container(
                     child: Image.asset('images/logo.png'),
-                    height: 60.0,
+                    height: controller.value,
                   ),
                 ),
                 Text(
-                  'Flash Chat',
+                  'Flash Chat: ${controller.value.toInt()}%',
                   style: TextStyle(
-                    fontSize: 45.0,
+                    fontSize: 30.0,
                     fontWeight: FontWeight.w900,
                   ),
                 ),
