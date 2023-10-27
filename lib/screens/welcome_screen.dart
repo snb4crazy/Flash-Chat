@@ -26,12 +26,12 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     //controller.reverse(from: 1.0);
     controller.addListener(
       () {
-        print('Controller: ${controller.value}');
+        //print('Controller: ${controller.value}');
         setState(() {});
       },
     );
     animation.addStatusListener((status) {
-      print('Animation: ${animation.value}');
+      //print('Animation: ${animation.value}');
     });
   }
 
